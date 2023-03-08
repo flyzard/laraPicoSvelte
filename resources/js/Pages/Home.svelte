@@ -14,7 +14,6 @@
         action-xhr="./"
         method="post"
         novalidate=""
-        class="i-amphtml-form"
     >
         <input
             type="text"
@@ -38,7 +37,7 @@
                     id="terms"
                     name="terms"
                 />
-                I agree to the <a href="#">Privacy Policy</a>
+                I agree to the <a href="/">Privacy Policy</a>
             </label>
         </fieldset>
         <button type="submit">Subscribe</button>

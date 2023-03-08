@@ -5,27 +5,26 @@
 <svelte:head>
     <title>{$title ? `${$title} - Pico` : "Pico"}</title>
 </svelte:head>
-<!-- Main -->
-<main>
+
+<nav>
+    <ul>
+      <!-- <li><a href="/" class="secondary">…</a></li> -->
+    </ul>
+    <ul>
+      <li><strong>Brand</strong></li>
+    </ul>
+    <ul>
+      <!-- <li><a href="/" class="secondary">…</a></li> -->
+    </ul>
+</nav>
+<main class="container">
     <slot />
-
-    <p>
-        For this example, we have compiled a custom and class-less version of
-        pico (<a
-            href="https://github.com/picocss/examples/blob/master/google-amp/"
-            >Source code here</a
-        >).
-    </p>
+    <footer>
+        <small
+            >Built with <a href="https://picocss.com">Pico</a> •
+            <a href="https://github.com/picocss/examples/tree/master/google-amp/"
+                >Source code</a
+            ></small
+        >
+    </footer>
 </main>
-<!-- ./ Main -->
-
-<!-- Footer -->
-<footer>
-    <small
-        >Built with <a href="https://picocss.com">Pico</a> •
-        <a href="https://github.com/picocss/examples/tree/master/google-amp/"
-            >Source code</a
-        ></small
-    >
-</footer>
-<!-- ./ Footer -->
