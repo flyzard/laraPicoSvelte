@@ -9,7 +9,7 @@
     export let error;
 
     $: err = error;
-
+    $: hasError = !!err && value !== "";
     let input;
 
     export const focus = () => input.focus();
@@ -34,12 +34,12 @@
         {id}
         {type}
         {value}
-        aria-invalid="{err}"
+        aria-invalid={hasError}
         on:input={update}
         required
     />
 
-    {#if err}
-        <div class="invalid-feedback d-block">{err}</div>
+    {#if hasError}
+        <div class="form-error">{err}</div>
     {/if}
 </div>

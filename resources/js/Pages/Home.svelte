@@ -5,10 +5,12 @@
 
 <script>
     export let foo;
+
+    import { inertia } from '@inertiajs/svelte';
 </script>
 
 <article>
-    <p>{foo}</p>
+    <p><a href="/login" use:inertia>Login</a></p>
     <h3>Subscribe</h3>
     <form
         action-xhr="./"

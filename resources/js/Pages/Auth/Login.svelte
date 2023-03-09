@@ -39,7 +39,6 @@
             <TextInput
                 bind:value={$form.email}
                 error={$form.errors.email}
-                class="row py-3"
                 label="Email:"
                 type="email"
                 autofocus
@@ -48,13 +47,12 @@
 
             <TextInput
                 bind:value={$form.password}
-                class="row py-3"
                 label="Password:"
                 type="password"
             />
 
             <div class="grid">
-                <label for="switch_disabled">
+                <label for="remember">
                     <input type="checkbox" id="remember" name="switch" role="switch" bind:checked={$form.remember}>
                     Remember
                 </label>
