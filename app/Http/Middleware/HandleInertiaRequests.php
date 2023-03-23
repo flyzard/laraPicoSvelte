@@ -36,7 +36,6 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-
         return array_merge(
             parent::share($request),
             [
@@ -45,8 +44,7 @@ class HandleInertiaRequests extends Middleware
                         'user' => $request->user() ? [
                             'id' => $request->user()->id,
                             'name' => $request->user()->name,
-                            'email' => $request->user()->email,
-                            'company_name' => $request->user()->company->name,
+                            'email' => $request->user()->email
                         ] : null,
                     ];
                 },
@@ -54,7 +52,8 @@ class HandleInertiaRequests extends Middleware
                     return [
                         'success' => $request->session()->get('success'),
                         'error' => $request->session()->get('error'),
-                        'toast' => $request->session()->get('toast')
+                        'toast' => $request->session()->get('toast'),
+                        'info' => $request->session()->get('info')
                     ];
                 },
                 'locale' => app()->getLocale()

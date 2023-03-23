@@ -8,13 +8,22 @@
     export let error;
 
     $: err = error;
-
     $: hasError = () => {
         if (value === "") {
             return "";
         }
 
         return !!err;
+    };
+
+    let oldValue = value;
+    const onChange = () => {
+        err = oldValue === value ? err : false;
+
+        if (!value) {
+            err = false;
+            return;
+        }
     };
 </script>
 
@@ -25,9 +34,10 @@
         {...$$restProps}
         class:error
         {id}
-        type="text"
+        type="password"
         bind:value={value}
         aria-invalid={hasError()}
+        on:change={onChange}
         placeholder={label}
     />
 

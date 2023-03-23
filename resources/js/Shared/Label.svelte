@@ -3,16 +3,14 @@
     export let label;
 
     $: props = {
-        ...$$restProps,
-        class: `form-label px-0 ${$$restProps.class || ""}`,
+        ...$$restProps
     };
 </script>
 
 {#if label}
-    <label {...props} for={id}
-        >{label}
+    <label {...props} for={id}>{label}
         {#if props.required}
-            <span class="text-danger">*</span>
+            <span aria-invalid="true">*</span>
         {/if}
     </label>
 {/if}

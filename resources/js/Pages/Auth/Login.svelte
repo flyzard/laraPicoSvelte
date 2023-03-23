@@ -6,7 +6,8 @@
 <script>
     import { useForm, inertia } from '@inertiajs/svelte';
     import LoadingButton from "@/Shared/LoadingButton.svelte";
-    import TextInput from "@/Shared/TextInput.svelte";
+    import EmailInput from "@/Shared/EmailInput.svelte";
+    import PasswordInput from "@/Shared/PasswordInput.svelte";
 
     let form = useForm({
         email: "",
@@ -36,19 +37,17 @@
     <form novalidate="" on:submit|preventDefault={login}>
         <fieldset>
             <legend>Login</legend>
-            <TextInput
+            <EmailInput
                 bind:value={$form.email}
                 error={$form.errors.email}
                 label="Email:"
-                type="email"
                 autofocus
                 autocapitalize="off"
             />
 
-            <TextInput
+            <PasswordInput
                 bind:value={$form.password}
                 label="Password:"
-                type="password"
             />
 
             <div class="grid">

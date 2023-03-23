@@ -7,14 +7,34 @@
     export let label;
     export let error;
 
-    $: err = error;
+    let validateEmail = (email) => {
+        // return value.match(validRegex)
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        return validRegex.test(email);
+    };
 
+    let oldValue = value;
+
+    $: err = error;
     $: hasError = () => {
         if (value === "") {
             return "";
         }
 
         return !!err;
+    };
+
+    const onChange = () => {
+        err = oldValue === value ? err : false;
+
+        if (!value) {
+            err = false;
+            return;
+        }
+
+        if (!validateEmail(value)) {
+            err = "Invalid email address!";
+        }
     };
 </script>
 
@@ -25,9 +45,10 @@
         {...$$restProps}
         class:error
         {id}
-        type="text"
+        type="email"
         bind:value={value}
         aria-invalid={hasError()}
+        on:change={onChange}
         placeholder={label}
     />
 

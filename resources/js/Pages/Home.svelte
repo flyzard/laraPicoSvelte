@@ -4,44 +4,19 @@
 </script>
 
 <script>
-    export let foo;
-
-    import { inertia } from '@inertiajs/svelte';
+    import { inertia, Link, page } from '@inertiajs/svelte';
 </script>
 
 <article>
-    <p><a href="/login" use:inertia>Login</a></p>
-    <h3>Subscribe</h3>
-    <form
-        action-xhr="./"
-        method="post"
-        novalidate=""
-    >
-        <input
-            type="text"
-            name="firstname"
-            placeholder="First name"
-            aria-label="First name"
-            required=""
-        />
-        <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            aria-label="Email address"
-            required=""
-        />
-        <fieldset>
-            <label for="terms">
-                <input
-                    type="checkbox"
-                    role="switch"
-                    id="terms"
-                    name="terms"
-                />
-                I agree to the <a href="/">Privacy Policy</a>
-            </label>
-        </fieldset>
-        <button type="submit">Subscribe</button>
-    </form>
+
+    {#if $page.props.auth.user}
+        <p>Logged in as {$page.props.auth.user.name}</p>
+        <Link href="/logout" method="POST">
+            {__("Sair")}
+        </Link>
+    {:else}
+        <p><a href="/login" use:inertia>Login</a></p>
+    {/if}
+
+    <h1>Test home page</h1>
 </article>

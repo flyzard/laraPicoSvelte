@@ -16,7 +16,8 @@
 
 
     // Show toast
-    $: toastMessage = $page.props.flash.toast;
+    $: toastMessage = $page.props.flash;
+    $: console.log(toastMessage);
     $: showToast(toastMessage);
 
     let locale = $page.props.locale;
